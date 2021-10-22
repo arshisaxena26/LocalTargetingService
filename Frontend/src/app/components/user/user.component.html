@@ -1,0 +1,52 @@
+<main>
+    <section class="container">
+        <h3 class="text-center">Users</h3>
+        <div class="mt-4 mat-elevation-z8 small-table" *ngIf='dataLength else empty'>
+            <table mat-table class="full-width-table" [dataSource]="dataSource">
+
+                <ng-container matColumnDef="S.No">
+                    <th mat-header-cell *matHeaderCellDef>S.No</th>
+                    <td mat-cell *matCellDef="let element; let i = index;">{{i+1}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let row">{{row.name}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Email">
+                    <th mat-header-cell *matHeaderCellDef>Email</th>
+                    <td mat-cell *matCellDef="let row">{{row.email}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="DOB">
+                    <th mat-header-cell *matHeaderCellDef>DOB</th>
+                    <td mat-cell *matCellDef="let row">{{row.dob }}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Gender">
+                    <th mat-header-cell *matHeaderCellDef>Gender</th>
+                    <td mat-cell *matCellDef="let row">{{row.gender}}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+            <mat-paginator #paginator [length]="dataLength" [pageIndex]="0" [pageSize]="5"
+                [pageSizeOptions]="[2, 5, 10]" aria-label="Select page">
+            </mat-paginator>
+        </div>
+    </section>
+
+    <ng-template #empty>
+        <div id="empty-list" class="row justify-content-center">
+            <h6 class="text-muted">No Users Found.</h6>
+        </div>
+    </ng-template>
+
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Close</button>
+    </mat-dialog-actions>
+
+</main>

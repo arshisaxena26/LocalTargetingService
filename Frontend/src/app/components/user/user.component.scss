@@ -1,0 +1,29 @@
+.full-width-table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 15px;
+  width: 100%;
+}
+
+main {
+  h3 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  }
+
+  .mat-header-cell {
+    font-size: small;
+    color: white;
+    background-color: gray;
+    text-align: center;
+  }
+
+  .mat-cell {
+    text-align: center;
+  }
+
+  .mat-paginator {
+    font-size: small;
+  }
+}
